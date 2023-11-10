@@ -8,3 +8,5 @@ pip install -r requirements.txt
 
 streamlit run app.py
 ```
+
+![](https://github.com/limboinf/xiaoyuzhoufm/blob/main/usage.png?raw=true)
