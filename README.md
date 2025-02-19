@@ -11,6 +11,10 @@
 - ⏱️ 实时显示下载和转录进度
 - 📊 显示音频时长和文件大小信息
 
+## 截图
+<img src="https://raw.githubusercontent.com/limboinf/xiaoyuzhoufm/refs/heads/main/usage1.png" width="600"/>
+
+<img src="https://raw.githubusercontent.com/limboinf/xiaoyuzhoufm/refs/heads/main/usage2.png" width="600"/>
 
 ## 安装说明
 
