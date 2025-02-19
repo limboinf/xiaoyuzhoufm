@@ -1,0 +1,6 @@
+.DS_Store
+*.mp3
+*.txt
+*.srt
+.venv/
+audio_files/
