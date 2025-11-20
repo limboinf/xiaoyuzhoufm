@@ -3,8 +3,11 @@ import requests
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 import os
 from tqdm import tqdm
+import argparse
 
 
 def fetch_audio_file(url, progress_callback=None):
@@ -20,7 +23,7 @@ def fetch_audio_file(url, progress_callback=None):
     chrome_options.add_argument("--window-size=1920,1080")
 
     # 不指定Service，让Selenium自动查找chromedriver（需确保chromedriver在环境变量中）
-    driver = webdriver.Chrome(options=chrome_options)
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
     end_time = time.time()
     print(f"driver init time: {end_time - start_time} seconds")
     # # 设置页面加载超时时间
@@ -79,14 +82,14 @@ def fetch_audio_file(url, progress_callback=None):
     finally:
         driver.quit()
 
-# if __name__ == "__main__":
-#     parser = argparse.ArgumentParser(description="下载小宇宙播客音频文件")
-#     parser.add_argument(
-#         "-u", "--url",
-#         type=str,
-#         help="播客页面 URL",
-#         required=True
-#     )
-#     args = parser.parse_args()
-#     fetch_audio_file(args.url)
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="下载小宇宙播客音频文件")
+    parser.add_argument(
+        "-u", "--url",
+        type=str,
+        help="播客页面 URL",
+        required=True
+    )
+    args = parser.parse_args()
+    fetch_audio_file(args.url)
 
